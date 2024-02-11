@@ -1,11 +1,20 @@
+import React from "react";
+// import { useState, useEffect } from "react";
 
-import './App.css';
+import RouterURL from "./router/RouterURL";
+import Header from "./Header";
+import Nav from "./Nav";
+import Footer from "./Footer";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1 class="text-8xl font-extrabold text-center text-red-700 mt-11">Hello world!</h1>
-    </div>
+    <>
+      <Header />
+      <Nav />
+      <RouterURL />
+      <Footer />
+    </>
   );
 }
 
