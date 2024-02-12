@@ -7,12 +7,31 @@ import PostPage from "../PostPage";
 import About from "../About";
 import Missing from "../Missing";
 
-export default function RouterURL({ posts, handleDelete }) {
+export default function RouterURL({
+  posts,
+  postBody,
+  postTitle,
+  setPostBody,
+  setPostTitle,
+  handleDelete,
+  handleSubmit
+}) {
   return (
     <Routes>
       <Route path="/" element={<Home posts={posts} />} />
       <Route path="home" element={<Home posts={posts} />} />
-      <Route path="post" element={<NewPost />} />
+      <Route
+        path="post"
+        element={
+          <NewPost
+            postBody={postBody}
+            postTitle={postTitle}
+            setPostBody={postBody}
+            setPostTitle={postTitle}
+            handleSubmit={handleSubmit}
+          />
+        }
+      />
       <Route
         path="post/:id"
         element={<PostPage posts={posts} handleDelete={handleDelete} />}

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import RouterURL from "./router/RouterURL";
 import Header from "./Header";
-import Nav from "./Nav";
+// import Nav from "./Nav";
 import Footer from "./Footer";
 import "./App.css";
 
@@ -36,6 +36,8 @@ function App() {
   ]);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [postTitle, setpostTitle] = useState("");
+  const [postBody, setpostBody] = useState("");
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
@@ -44,11 +46,23 @@ function App() {
     navigate("/");
   };
 
+  const handleSubmit = () => {
+    
+  }
+
   return (
     <>
       <Header title={"My Header"} search={search} setSearch={setSearch} />
       {/* <Nav search={search} setSearch={setSearch} /> */}
-      <RouterURL posts={posts} handleDelete={handleDelete} />
+      <RouterURL
+        posts={posts}
+        postBody={postBody}
+        postTitle={postTitle}
+        setPostBody={postBody}
+        setPostTitle={postTitle}
+        handleDelete={handleDelete}
+        handleSubmit={handleSubmit}
+      />
       <Footer />
     </>
   );

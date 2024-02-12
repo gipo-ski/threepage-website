@@ -17,7 +17,7 @@ const PostPage = ({ posts, handleDelete }) => {
             <p>{post.body}</p>
             <button
               className="text-white text-xl border-2 bg-red-300 px-4 hover:bg-red-400 py-2 rounded"
-              onClick={handleDelete}
+              onClick={() => handleDelete(post.id)}
             >
               Delete Post
             </button>
