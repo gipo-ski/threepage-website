@@ -14,7 +14,7 @@ const NewPost = ({
         onSubmit={handleSubmit}
         className="flex flex-col w-1/2 mx-auto"
       >
-        <label htmlFor="postTitle" className="gap-0">
+        <label htmlFor="postTitle" className="">
           Title:
         </label>
         <input
@@ -22,20 +22,20 @@ const NewPost = ({
           type="text"
           required
           value={postTitle}
-          onChange={(e) => (setPostTitle = e.target.value)}
+          onChange={(e) => setPostTitle(e.target.value)}
           className="px-4 py-2 mb-4 border rounded shadow-md"
         />
-        <label htmlFor="postBody" className="gap-0">
+        <label htmlFor="postBody" className="">
           Post:
         </label>
         <textarea
           id="postBody"
-          cols="30"
+          cols="300"
           rows="10"
           required
           value={postBody}
           onChange={(e) => setPostBody(e.target.value)}
-          className="px-4 py-2 mb-4 border rounded shadow-md"
+          className="px-4 py-2 mb-4  border rounded shadow-md"
         />
         <button
           type="submit"

@@ -13,21 +13,22 @@ export default function RouterURL({
   postTitle,
   setPostBody,
   setPostTitle,
+  searchResults,
   handleDelete,
   handleSubmit
 }) {
   return (
     <Routes>
-      <Route path="/" element={<Home posts={posts} />} />
-      <Route path="home" element={<Home posts={posts} />} />
+      <Route path="/" element={<Home posts={searchResults} />} />
+      <Route path="home" element={<Home posts={searchResults} />} />
       <Route
         path="post"
         element={
           <NewPost
             postBody={postBody}
             postTitle={postTitle}
-            setPostBody={postBody}
-            setPostTitle={postTitle}
+            setPostBody={setPostBody}
+            setPostTitle={setPostTitle}
             handleSubmit={handleSubmit}
           />
         }
