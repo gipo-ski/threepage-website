@@ -6,14 +6,11 @@ const NewPost = ({
   handleSubmit,
 }) => {
   return (
-    <main className="flex flex-col">
-      <h1 className="text-8xl font-extrabold text-center text-red-700 mt-11">
+    <main className="flex flex-col h-svh">
+      <h1 className="text-8xl font-extrabold text-center text-red-700">
         NewPost
       </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col w-1/2 mx-auto"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col w-1/2 mx-auto">
         <label htmlFor="postTitle" className="">
           Title:
         </label>
@@ -35,7 +32,7 @@ const NewPost = ({
           required
           value={postBody}
           onChange={(e) => setPostBody(e.target.value)}
-          className="px-4 py-2 mb-4  border rounded shadow-md"
+          className="px-4 py-2 mb-4 border rounded shadow-md"
         />
         <button
           type="submit"

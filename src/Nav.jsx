@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Nav = ({ search, setSearch }) => {
   return (
-    <nav className="flex flex-1 justify-end ">
+    <nav className="flex flex-1 justify-end">
       <form
         className="text-xl text-center text-red-700"
         onSubmit={(e) => e.preventDefault()}
