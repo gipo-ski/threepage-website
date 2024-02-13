@@ -6,6 +6,7 @@ import NewPost from "../NewPost";
 import PostPage from "../PostPage";
 import About from "../About";
 import Missing from "../Missing";
+import EditPost from "../EditPost";
 
 export default function RouterURL({
   posts,
@@ -13,9 +14,14 @@ export default function RouterURL({
   postTitle,
   setPostBody,
   setPostTitle,
+  editBody,
+  editTitle,
+  setEditBody,
+  setEditTitle,
   searchResults,
   handleDelete,
-  handleSubmit
+  handleSubmit,
+  handleEdit
 }) {
   return (
     <Routes>
@@ -30,6 +36,19 @@ export default function RouterURL({
             setPostBody={setPostBody}
             setPostTitle={setPostTitle}
             handleSubmit={handleSubmit}
+          />
+        }
+      />
+      <Route
+        path="edit/:id"
+        element={
+          <EditPost
+            posts={posts}
+            editBody={editBody}
+            editTitle={editTitle}
+            setEditBody={setEditBody}
+            setEditTitle={setEditTitle}
+            handleEdit={handleEdit}
           />
         }
       />

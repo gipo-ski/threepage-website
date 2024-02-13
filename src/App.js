@@ -15,6 +15,9 @@ function App() {
 	const [searchResults, setSearchResults] = useState([]);
 	const [postTitle, setPostTitle] = useState("");
 	const [postBody, setPostBody] = useState("");
+	const [editTitle, setEditTitle] = useState("");
+	const [editBody, setEditBody] = useState("");
+
 	const navigate = useNavigate();
 
 	//get - CRUD:READ
@@ -55,6 +58,32 @@ function App() {
 		setSearchResults(filteredResults.reverse());
 	}, [posts, search]);
 
+	//put, edit - CRUD:EDIT
+	const handleEdit = async (id) => {
+		const datetime = format(new Date(), "MMMM dd, yyyy pp");
+		const updatedPost = { id, title: editTitle, datetime, body: editBody };
+		try {
+			const response = await posts.put(`/posts/${id}`, updatedPost);
+			setPosts(
+				posts.map((post) => (post.id === id ? { ...response.data } : post))
+			);
+			setEditTitle("");
+			setEditBody("");
+			navigate("/");
+		} catch (error) {
+			if (error.response) {
+				console.log(error.response.data);
+				console.log(error.response.status);
+				console.log(error.response.headers);
+			} else if (error.request) {
+				console.log(error.request);
+			} else {
+				console.log(`Error: ${error.message}`);
+			}
+			console.log(error.config);
+		}
+	};
+
 	//delete - CRUD:DELETE
 	const handleDelete = async (id) => {
 		try {
@@ -64,18 +93,12 @@ function App() {
 			navigate("/");
 		} catch (error) {
 			if (error.response) {
-				// error logs from axios: The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
 				console.log(error.response.data);
 				console.log(error.response.status);
 				console.log(error.response.headers);
 			} else if (error.request) {
-				// The request was made but no response was received
-				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-				// http.ClientRequest in node.js
 				console.log(error.request);
 			} else {
-				// Something happened in setting up the request that triggered an Error
 				console.log(`Error: ${error.message}`);
 			}
 			console.log(error.config);
@@ -123,6 +146,11 @@ function App() {
 				postTitle={postTitle}
 				setPostBody={setPostBody}
 				setPostTitle={setPostTitle}
+				editBody={editBody}
+				editTitle={editTitle}
+				setEditBody={setEditBody}
+				setEditTitle={setEditTitle}
+				handleEdit={handleEdit}
 				handleDelete={handleDelete}
 				handleSubmit={handleSubmit}
 				searchResults={searchResults}

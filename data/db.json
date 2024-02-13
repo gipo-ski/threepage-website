@@ -1,16 +1,40 @@
 {
   "posts": [
     {
-      "id": "1",
+      "id": 1,
       "title": "My First Post",
       "datetime": "January 1, 2024",
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ullam obcaecati!"
     },
     {
-      "id": "2",
+      "id": 2,
       "title": "My Second Post",
       "datetime": "February 1, 2024",
       "body": "Lorem, aspernatur ipsa eligendi ratione ex ea quia magnam doloribus est provident voluptatum "
+    },
+    {
+      "id": 3,
+      "title": "My Third Post",
+      "datetime": "March 1, 2024",
+      "body": "Lorem, ipsum dolor sit amet"
+    },
+    {
+      "id": 4,
+      "title": "My Fourth Post",
+      "datetime": "April 1, 2024",
+      "body": "Lorem, consectetur adipisicing elit.Maiores doloribus est provident voluptatum exercitationem consequuntur dolore labore eveniet ullam obcaecati!"
+    },
+    {
+      "id": 5,
+      "title": "new post",
+      "datetime": "February 13, 2024 4:56:33 PM",
+      "body": "to test api"
+    },
+    {
+      "id": 6,
+      "title": "another post",
+      "datetime": "February 13, 2024 4:57:40 PM",
+      "body": "another post to test the api"
     }
   ]
 }
