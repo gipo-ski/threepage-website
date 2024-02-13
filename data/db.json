@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "My First Post",
+      "datetime": "January 1, 2024",
+      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. ullam obcaecati!"
+    },
+    {
+      "id": "2",
+      "title": "My Second Post",
+      "datetime": "February 1, 2024",
+      "body": "Lorem, aspernatur ipsa eligendi ratione ex ea quia magnam doloribus est provident voluptatum "
+    }
+  ]
+}

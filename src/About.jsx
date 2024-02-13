@@ -28,7 +28,7 @@ const About = () => {
           soluta ratione.
         </p>
         <br />
-        <span className="font-bold text-teal-600">GIPOSKI</span>
+        <span className="text-3xl font-extralight text-teal-600">GIPOSKI</span>
       </div>
     </main>
   );
