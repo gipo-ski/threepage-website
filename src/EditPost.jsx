@@ -15,13 +15,13 @@ const EditPost = ({
 	useEffect(() => {
 		if (post) {
 			setEditTitle(post.title);
-			setEditBody(post.Body);
+			setEditBody(post.body);
 		}
 	}, [post, setEditTitle, setEditBody]);
 
 	return (
-		<main className='NewPostForm flex flex-col h-svh'>
-			{editTitle && (
+		<main className='flex flex-col h-svh'>
+			{editTitle && 
 				<>
 					<h1 className='text-8xl font-extrabold text-center text-red-700'>
 						EditPost
@@ -68,8 +68,8 @@ const EditPost = ({
 						</button>
 					</form>
 				</>
-			)}
-			{!editTitle && (
+			}
+			{!editTitle && 
 				<>
 					<h2>Post Not Found</h2>
 					<p>Well, That's Disappointing.</p>
@@ -77,7 +77,7 @@ const EditPost = ({
 						<Link to='/'>Visit Our Homepage</Link>
 					</p>
 				</>
-			)}
+			}
 		</main>
 	);
 };

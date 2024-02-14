@@ -17,8 +17,16 @@ function App() {
 	const [postBody, setPostBody] = useState("");
 	const [editTitle, setEditTitle] = useState("");
 	const [editBody, setEditBody] = useState("");
-
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const filteredResults = posts.filter(
+			(post) =>
+				post.body.toLowerCase().includes(search.toLowerCase()) ||
+				post.title.toLowerCase().includes(search.toLowerCase())
+		);
+		setSearchResults(filteredResults.reverse());
+	}, [posts, search]);
 
 	//get - CRUD:READ
 	useEffect(() => {
@@ -49,21 +57,12 @@ function App() {
 		fetchPosts();
 	}, []);
 
-	useEffect(() => {
-		const filteredResults = posts.filter(
-			(post) =>
-				post.body.toLowerCase().includes(search.toLowerCase()) ||
-				post.title.toLowerCase().includes(search.toLowerCase())
-		);
-		setSearchResults(filteredResults.reverse());
-	}, [posts, search]);
-
 	//put, edit - CRUD:EDIT
 	const handleEdit = async (id) => {
 		const datetime = format(new Date(), "MMMM dd, yyyy pp");
 		const updatedPost = { id, title: editTitle, datetime, body: editBody };
 		try {
-			const response = await posts.put(`/posts/${id}`, updatedPost);
+			const response = await api.put(`/posts/${id}`, updatedPost);
 			setPosts(
 				posts.map((post) => (post.id === id ? { ...response.data } : post))
 			);
