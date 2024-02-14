@@ -12,7 +12,7 @@ const PostPage = ({ posts, handleDelete }) => {
 			<article className='flex flex-col m-4 p-4 mx-auto w-8/12 rounded bg-slate-200 '>
 				{post && (
 					<>
-						<h2 className='text-2xl'>{post.title}</h2>
+						<h2 className='text-2xl font-extrabold'>{post.title}</h2>
 						<p>{post.datetime}</p>
 						<p className='text-xl'>{post.body}</p>
 						<Link to={`/edit/${post.id}`}>

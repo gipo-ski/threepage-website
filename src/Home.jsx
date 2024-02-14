@@ -2,7 +2,7 @@ import Feed from './Feed'
 
 const Home = ({ posts }) => {
   return (
-    <main className="flex flex-col h-svh">
+    <main className="flex flex-col h-lvh">
       <h1 className="text-8xl font-extrabold text-center text-red-700">Home</h1>
       {posts.length ? (
         <Feed posts={posts} />

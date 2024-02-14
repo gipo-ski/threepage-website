@@ -4,7 +4,7 @@ const Post = ({ post }) => {
   return (
     <article className="flex flex-col gap-2 m-4 p-4 mx-auto w-8/12 rounded bg-slate-200">
       <Link to={`/post/${post.id}`}>
-        <h2 className="text-2xl">{post.title}</h2>
+        <h2 className="text-2xl font-semibold">{post.title}</h2>
         <p className="text-sm">{post.datetime}</p>
       </Link>
       <p className="text-xl">
