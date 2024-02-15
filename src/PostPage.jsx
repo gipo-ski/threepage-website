@@ -1,10 +1,14 @@
 import { useParams, Link } from "react-router-dom";
+import { useContext } from "react";
 
-const PostPage = ({ posts, handleDelete }) => {
-  const { id } = useParams();
-  const post = posts.find((post) => post.id.toString() === id);
+import DataContext from "./context/DataContext";
 
-  return (
+const PostPage = () => {
+	const { posts, handleDelete } = useContext(DataContext);
+	const { id } = useParams();
+	const post = posts.find((post) => post.id.toString() === id);
+
+	return (
 		<main className='flex flex-col gap-4 w-8/12 mx-auto h-svh'>
 			<h1 className='text-8xl font-extrabold text-center text-red-700'>
 				PostPage

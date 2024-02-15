@@ -1,14 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 
-const EditPost = ({
-	posts,
-	editTitle,
-	setEditTitle,
-	editBody,
-	setEditBody,
-	handleEdit,
-}) => {
+import DataContext from "./context/DataContext";
+
+const EditPost = () => {
+	const { posts, editTitle, setEditTitle, editBody, setEditBody, handleEdit } =
+		useContext(DataContext);
+
 	const { id } = useParams();
 	const post = posts.find((post) => post.id.toString() === id);
 
@@ -21,7 +19,7 @@ const EditPost = ({
 
 	return (
 		<main className='flex flex-col h-svh'>
-			{editTitle && 
+			{editTitle && (
 				<>
 					<h1 className='text-8xl font-extrabold text-center text-red-700'>
 						EditPost
@@ -68,8 +66,8 @@ const EditPost = ({
 						</button>
 					</form>
 				</>
-			}
-			{!editTitle && 
+			)}
+			{!editTitle && (
 				<>
 					<h2>Post Not Found</h2>
 					<p>Well, That's Disappointing.</p>
@@ -77,7 +75,7 @@ const EditPost = ({
 						<Link to='/'>Visit Our Homepage</Link>
 					</p>
 				</>
-			}
+			)}
 		</main>
 	);
 };
