@@ -18,7 +18,7 @@ const EditPost = () => {
 	}, [post, setEditTitle, setEditBody]);
 
 	return (
-		<main className='flex flex-col h-svh'>
+		<main className='w-full flex-1 p-4 overflow-y-auto bg-white'>
 			{editTitle && (
 				<>
 					<h1 className='text-8xl font-extrabold text-center text-red-700'>
@@ -26,7 +26,7 @@ const EditPost = () => {
 					</h1>
 					<form
 						onSubmit={(e) => e.preventDefault()}
-						className='flex flex-col w-1/2 mx-auto'
+						className='flex flex-col gap-2 m-4 p-4 mx-auto w-10/12 rounded bg-slate-200'
 					>
 						<label
 							htmlFor='postTitle'

@@ -9,23 +9,23 @@ const PostPage = () => {
 	const post = posts.find((post) => post.id.toString() === id);
 
 	return (
-		<main className='flex flex-col gap-4 w-8/12 mx-auto h-svh'>
+		<main className='w-full flex-1 p-4 overflow-y-auto bg-white'>
 			<h1 className='text-8xl font-extrabold text-center text-red-700'>
 				PostPage
 			</h1>
-			<article className='flex flex-col m-4 p-4 mx-auto w-8/12 rounded bg-slate-200 '>
+			<article className='flex flex-col gap-2 m-4 p-4 mx-auto w-10/12 rounded bg-slate-200'>
 				{post && (
 					<>
 						<h2 className='text-2xl font-extrabold'>{post.title}</h2>
-						<p>{post.datetime}</p>
-						<p className='text-xl'>{post.body}</p>
+						<p className='text-sm mt-1'>{post.datetime}</p>
+						<p className='text-xl my-4 mx-0'>{post.body}</p>
 						<Link to={`/edit/${post.id}`}>
-							<button className='text-center text-white text-xl border-2 bg-red-300 px-4 mt-4 hover:bg-red-400 focus:bg-red-500 py-2 rounded'>
+							<button className='h-12 mr-2 text-center text-white text-xl border-2 bg-teal-300 px-4 mt-4 hover:bg-teal-400 focus:bg-teal-500 py-2 rounded cursor-pointer'>
 								Edit Post
 							</button>
 						</Link>
 						<button
-							className='text-center text-white text-xl border-2 bg-red-300 px-4 mt-4 hover:bg-red-400 focus:bg-red-500 py-2 rounded'
+							className='h-12 min-w-12 mr-2 text-center text-white text-xl border-2 bg-red-300 px-4 mt-4 hover:bg-red-400 focus:bg-red-500 py-2 rounded cursor-pointer'
 							onClick={() => handleDelete(post.id)}
 						>
 							Delete Post
@@ -34,10 +34,15 @@ const PostPage = () => {
 				)}
 				{!post && (
 					<>
-						<h2>Post Not Found</h2>
-						<p>Well, That's Disappointing!</p>
+						<h2 className='text-3xl mt-4 pb-4 '>Page not Found</h2>
+						<p className='mt-4'>Well, That's Disappointing.</p>
 						<p>
-							<Link to='/'>Visit Our Homepage</Link>
+							<Link
+								to='/'
+								className='font-bold underline underline-offset-8 cursor-pointer'
+							>
+								Visit Our Homepage
+							</Link>
 						</p>
 					</>
 				)}

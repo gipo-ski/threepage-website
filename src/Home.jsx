@@ -7,13 +7,13 @@ const Home = () => {
 	const { searchResults, fetchError, isLoading } = useContext(DataContext);
 
 	return (
-		<main className='flex flex-col h-100vh'>
+		<main className='w-full flex-1 p-4 overflow-y-auto bg-white'>
 			<h1 className='text-8xl font-extrabold text-center text-red-700'>Home</h1>
 			{isLoading && (
-				<p className='statusMsg text-4xl text-center mt-11'>Loading Post...</p>
+				<p className='text-4xl text-center mt-11'>Loading Post...</p>
 			)}
 			{!isLoading && fetchError && (
-				<p className='statusMsg text-red-600'>{fetchError}</p>
+				<p className='text-red-600 mt-4'>{fetchError}</p>
 			)}
 			{!isLoading &&
 				!fetchError &&
